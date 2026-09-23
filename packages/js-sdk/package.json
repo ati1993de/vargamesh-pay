@@ -1,0 +1,12 @@
+{
+  "name": "@vargamesh/pay",
+  "version": "0.1.0",
+  "description": "VargaMesh Pay URI builder and parser",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": "./src/index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

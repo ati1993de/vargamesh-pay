@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VargaMesh Pay Demo</title>
+  <style>
+    body{font-family:system-ui,sans-serif;max-width:760px;margin:40px auto;padding:0 20px;background:#0b1020;color:#eef2ff}
+    .card{background:#141b2f;border:1px solid #28324d;border-radius:18px;padding:24px}
+    label{display:block;margin-top:14px;font-weight:650} input{width:100%;box-sizing:border-box;padding:12px;margin-top:6px;border-radius:10px;border:1px solid #394563;background:#0c1325;color:white}
+    button,a.pay{display:inline-block;margin-top:18px;padding:12px 16px;border:0;border-radius:10px;background:#ffffff;color:#0b1020;font-weight:700;text-decoration:none;cursor:pointer}
+    #qr{background:#fff;border-radius:14px;margin-top:18px;max-width:280px;padding:12px} code{word-break:break-all}.muted{opacity:.72}
+  </style>
+</head>
+<body>
+  <h1>VargaMesh Pay</h1>
+  <p class="muted">Non-custodial VMESH payment request demo.</p>
+  <div class="card">
+    <label>VMESH address<input id="address" value="vm1qw508d6qejxtdg4y5r3zarvary0c5xw7kr9qdyv"></label>
+    <label>Amount<input id="amount" value="12.5"></label>
+    <label>Label<input id="label" value="Varga-Tech"></label>
+    <label>Message<input id="message" value="Invoice 4711"></label>
+    <label>Reference<input id="reference" value="INV-4711"></label>
+    <button id="create">Create payment request</button>
+    <div id="result" hidden>
+      <p><code id="uri"></code></p>
+      <canvas id="qr"></canvas><br>
+      <a class="pay" id="open">Open wallet</a>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  js-sdk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test URI SDK
+        working-directory: packages/js-sdk
+        run: npm test
+
+  web-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: packages/web-checkout/package-lock.json
+      - name: Install and build
+        working-directory: packages/web-checkout
+        run: |
+          npm install
+          npm run build
+
+  php-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: PHP syntax
+        run: php -l packages/wordpress-plugin/vargamesh-pay/vargamesh-pay.php
